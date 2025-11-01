@@ -1,3 +1,4 @@
+using OrderManagement.Application;
 using OrderManagement.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,7 @@ builder.Services.AddSwaggerGen();
 
 var connectionString = builder.Configuration.GetConnectionString("Development");
 builder.Services.ConfigureInfrastructure(connectionString);
+builder.Services.ConfigureApplication();
 
 var app = builder.Build();
 
