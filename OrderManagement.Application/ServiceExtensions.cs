@@ -1,6 +1,8 @@
 using System.Reflection;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
+using OrderManagement.Application.Interfaces.Services;
+using OrderManagement.Application.Services;
 
 namespace OrderManagement.Application;
 
@@ -14,5 +16,7 @@ public static class ServiceExtensions
             cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
         });
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+
+        services.AddScoped<IOrderInvoiceService, OrderInvoiceService>();
     }
 }
