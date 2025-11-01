@@ -1,6 +1,7 @@
 using AutoMapper;
 using OrderManagement.Application.Features.ProductFeatures.CreateProduct;
 using OrderManagement.Application.Features.ProductFeatures.GetAllProducts;
+using OrderManagement.Application.Features.ProductFeatures.GetProductReport;
 using OrderManagement.Domain.Entities;
 
 namespace OrderManagement.Application.Mappings;

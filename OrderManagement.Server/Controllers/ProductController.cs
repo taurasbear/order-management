@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using OrderManagement.Application.Features.ProductFeatures.ApplyProductDiscount;
 using OrderManagement.Application.Features.ProductFeatures.CreateProduct;
 using OrderManagement.Application.Features.ProductFeatures.GetAllProducts;
+using OrderManagement.Application.Features.ProductFeatures.GetProductReport;
 
 namespace OrderManagement.Server.Controllers;
 
@@ -28,5 +29,12 @@ public class ProductController(IMediator mediator) : BaseController
     {
         await mediator.Send(command, cancellationToken);
         return NoContent();
+    }
+
+    [HttpGet]
+    public async Task<ActionResult<GetProductReportResponse>> GetReport([FromQuery] GetProductReportQuery query, CancellationToken cancellationToken)
+    {
+        var response = await mediator.Send(query, cancellationToken);
+        return Ok(response);
     }
 }

@@ -18,5 +18,6 @@ public static class ServiceExtensions
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
         services.AddScoped<IOrderInvoiceService, OrderInvoiceService>();
+        services.AddScoped<IProductReportService, ProductReportService>();
     }
 }
