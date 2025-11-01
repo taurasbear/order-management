@@ -1,5 +1,6 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using OrderManagement.Application.Features.ProductFeatures.ApplyProductDiscount;
 using OrderManagement.Application.Features.ProductFeatures.CreateProduct;
 using OrderManagement.Application.Features.ProductFeatures.GetAllProducts;
 
@@ -20,5 +21,12 @@ public class ProductController(IMediator mediator) : BaseController
     {
         await mediator.Send(command, cancellationToken);
         return Created();
+    }
+
+    [HttpPatch]
+    public async Task<IActionResult> ApplyDiscount([FromBody] ApplyProductDiscountCommand command, CancellationToken cancellationToken)
+    {
+        await mediator.Send(command, cancellationToken);
+        return NoContent();
     }
 }
