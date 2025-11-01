@@ -10,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers(opt =>
 {
     opt.Filters.Add<ValidationExceptionFilter>();
+    opt.Filters.Add<NotFoundExceptionFilter>();
 });
 
 builder.Services.AddEndpointsApiExplorer();
