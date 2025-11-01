@@ -1,5 +1,7 @@
+using Microsoft.EntityFrameworkCore;
 using OrderManagement.Application;
 using OrderManagement.Infrastructure;
+using OrderManagement.Infrastructure.Data.DatabaseContext;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +19,12 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+}
+
+using (var scope = app.Services.CreateScope())
+{
+    var orderContext = scope.ServiceProvider.GetRequiredService<OrderContext>();
+    await orderContext.Database.MigrateAsync();
 }
 
 app.UseHttpsRedirection();
