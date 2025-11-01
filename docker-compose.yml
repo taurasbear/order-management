@@ -1,0 +1,70 @@
+services:
+  order.management.server:
+    image: order.management.server:dev
+    build:
+      context: .
+      dockerfile: ./OrderManagement.Server/Dockerfile
+      target: dev
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=password
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/root/.aspnet/https/aspnetapp.pfx
+    ports:
+      - "8000:8080"
+      - "8001:8081"
+    volumes:
+      - ./OrderManagement.Server:/app/OrderManagement.Server
+      - ./OrderManagement.Application:/app/OrderManagement.Application
+      - ./OrderManagement.Domain:/app/OrderManagement.Domain
+      - ./OrderManagement.Infrastructure:/app/OrderManagement.Infrastructure
+      - /app/OrderManagement.Server/bin
+      - /app/OrderManagement.Server/obj
+      - /app/OrderManagement.Application/bin
+      - /app/OrderManagement.Application/obj
+      - /app/OrderManagement.Domain/bin
+      - /app/OrderManagement.Domain/obj
+      - /app/OrderManagement.Infrastructure/bin
+      - /app/OrderManagement.Infrastructure/obj
+      - ${HOME}/Documents/.aspnet/https:/root/.aspnet/https:ro
+    networks:
+      - app-network
+    depends_on:
+      - db
+      
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "8080:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    networks:
+      - app-network
+    depends_on:
+      - db
+
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: ordermanagement
+      PGPORT: 5434
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+    ports:
+      - "5434:5434"
+
+networks:
+  app-network:
+    driver: bridge
+volumes:
+  postgres_data:
+  pgadmin_data:
