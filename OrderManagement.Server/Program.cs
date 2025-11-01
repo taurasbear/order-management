@@ -8,7 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(opt =>
+{
+    opt.CustomSchemaIds(type => type.FullName?.Replace("+", "."));
+});
 
 var connectionString = builder.Configuration.GetConnectionString("Development");
 builder.Services.ConfigureInfrastructure(connectionString);
