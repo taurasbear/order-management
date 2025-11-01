@@ -12,7 +12,7 @@ using OrderManagement.Infrastructure.Data.DatabaseContext;
 namespace OrderManagement.Infrastructure.Migrations
 {
     [DbContext(typeof(OrderContext))]
-    [Migration("20251101170308_InitialMigration")]
+    [Migration("20251101173509_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -69,15 +69,15 @@ namespace OrderManagement.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<double>("Discount")
+                        .HasColumnType("double precision");
+
                     b.Property<int>("MinDiscountCount")
                         .HasColumnType("integer");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
-
-                    b.Property<double>("Percentage")
-                        .HasColumnType("double precision");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("numeric");

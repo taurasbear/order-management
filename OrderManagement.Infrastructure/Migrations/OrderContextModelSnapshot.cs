@@ -66,15 +66,15 @@ namespace OrderManagement.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<double>("Discount")
+                        .HasColumnType("double precision");
+
                     b.Property<int>("MinDiscountCount")
                         .HasColumnType("integer");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
-
-                    b.Property<double>("Percentage")
-                        .HasColumnType("double precision");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("numeric");

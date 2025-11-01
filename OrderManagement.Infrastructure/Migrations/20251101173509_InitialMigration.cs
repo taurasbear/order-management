@@ -29,7 +29,7 @@ namespace OrderManagement.Infrastructure.Migrations
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Name = table.Column<string>(type: "text", nullable: false),
                     Price = table.Column<decimal>(type: "numeric", nullable: false),
-                    Percentage = table.Column<double>(type: "double precision", nullable: false),
+                    Discount = table.Column<double>(type: "double precision", nullable: false),
                     MinDiscountCount = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
