@@ -8,14 +8,10 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=8080
-      - ASPNETCORE_HTTPS_PORTS=8081
       - DOTNET_USE_POLLING_FILE_WATCHER=1
-      - ASPNETCORE_Kestrel__Certificates__Default__Password=password
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/root/.aspnet/https/aspnetapp.pfx
       - ConnectionStrings__Development=${DEV_DB_CONNECTION_STRING}
     ports:
       - "8000:8080"
-      - "8001:8081"
     volumes:
       - ./OrderManagement.Server:/app/OrderManagement.Server
       - ./OrderManagement.Application:/app/OrderManagement.Application
@@ -57,7 +53,7 @@ services:
       POSTGRES_DB: ordermanagement
       PGPORT: 5434
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql
     networks:
       - app-network
     ports:
