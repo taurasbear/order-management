@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using OrderManagement.Application;
 using OrderManagement.Infrastructure;
 using OrderManagement.Infrastructure.Data.DatabaseContext;
+using OrderManagement.Infrastructure.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +26,11 @@ using (var scope = app.Services.CreateScope())
 {
     var orderContext = scope.ServiceProvider.GetRequiredService<OrderContext>();
     await orderContext.Database.MigrateAsync();
+
+    foreach (var seeder in scope.ServiceProvider.GetServices<IDevelopmentSeeder>())
+    {
+        await seeder.SeedAsync(CancellationToken.None);
+    }
 }
 
 app.UseHttpsRedirection();
