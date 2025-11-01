@@ -8,7 +8,9 @@ public class ApplyProductDiscountCommandValidator : AbstractValidator<ApplyProdu
     {
         RuleFor(command => command.Discount)
             .GreaterThanOrEqualTo(0)
-            .WithMessage("Discount must not be negative.");
+            .WithMessage("Discount must not be negative.")
+            .LessThan(100)
+            .WithMessage("Discount must not be more or equal to 100%.");
 
         RuleFor(command => command.MinDiscountCount)
             .GreaterThanOrEqualTo(0)
