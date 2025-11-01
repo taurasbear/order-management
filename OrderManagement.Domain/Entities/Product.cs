@@ -6,7 +6,7 @@ public class Product : BaseEntity
 
     public decimal Price { get; set; }
 
-    public double Percentage { get; set; }
+    public double Discount { get; set; }
 
     public int MinDiscountCount { get; set; }
 
