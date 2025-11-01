@@ -1,0 +1,14 @@
+namespace OrderManagement.Domain.Entities;
+
+public class Product : BaseEntity
+{
+    public string Name { get; set; } = string.Empty;
+
+    public decimal Price { get; set; }
+
+    public double Percentage { get; set; }
+
+    public int MinDiscountCount { get; set; }
+
+    public ICollection<OrderProduct> OrderProducts { get; set; } = [];
+}
