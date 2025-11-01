@@ -1,12 +1,16 @@
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using OrderManagement.Application.Features.ProductFeatures.GetAllProducts;
 
 namespace OrderManagement.Server.Controllers;
 
-public class ProductController : BaseController
+public class ProductController(IMediator mediator) : BaseController
 {
     [HttpGet]
-    public async Task<ActionResult> GetAll()
+    public async Task<ActionResult<GetAllProductsResponse>> GetAll([FromQuery] GetAllProductsQuery query, CancellationToken cancellationToken)
     {
-        return Ok(new { Name = "Laptop", Price = "5000" });
+        var response = await mediator.Send(query, cancellationToken);
+
+        return Ok(response);
     }
 }
