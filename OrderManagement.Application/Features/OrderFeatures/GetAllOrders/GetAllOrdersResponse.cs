@@ -4,9 +4,9 @@ public sealed record GetAllOrdersResponse
 {
     public Guid Id { get; set; }
 
-    public List<Product> Products { get; set; } = [];
+    public List<OrderProduct> Products { get; set; } = [];
 
-    public sealed class Product
+    public sealed class OrderProduct
     {
         public int Quantity { get; set; }
 

@@ -9,7 +9,7 @@ public class OrderProductMappings : Profile
 {
     public OrderProductMappings()
     {
-        CreateMap<OrderProduct, GetAllOrdersResponse.Product>()
+        CreateMap<OrderProduct, GetAllOrdersResponse.OrderProduct>()
             .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Product.Name))
             .ForMember(dest => dest.Quantity, opt => opt.MapFrom(src => src.Quantity));
 
