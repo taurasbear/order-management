@@ -1,6 +1,6 @@
 # Adform application task
 
-## Task
+## Description
 
 A simple order management API with a persistence layer. [Learn more here](https://github.com/erinev/order-management-api-exercise).
 
@@ -8,7 +8,7 @@ A simple order management API with a persistence layer. [Learn more here](https:
 
 ### Prerequisites
 
-- Docker and Docker compose installed on system
+- **Docker** and **Docker compose** installed on system
 - Other Docker services are down (might get porting conflicts)
 
 ### Instructions
@@ -20,7 +20,7 @@ A simple order management API with a persistence layer. [Learn more here](https:
 docker compose up -d
 ```
 
-_If you get certificate issues, try getting rid of part mappings and `ASPNETCORE_HTTPS_PORTS=8081` in `docker-compose.yml`_
+_If you get certificate issues, try getting rid of port mappings and `ASPNETCORE_HTTPS_PORTS=8081` in `docker-compose.yml`_
 
 ## Highlights
 
@@ -30,9 +30,16 @@ _If you get certificate issues, try getting rid of part mappings and `ASPNETCORE
 - Exception filters
 - Easy setup thanks to Docker
 - Mappings with **AutoMapper**
+- Minimal seeding
 
 ## Possible improvements
 
 - Get rid of lazy-loading. Only used it for convenience :p
-- Global Exception Handler
+- Global exception handler
 - Tests
+
+## Final thoughts
+
+- Spent around 8 hours in total working on this project
+- Prioritised functionality (KISS)
+- Had lots of fun :p
