@@ -1,8 +1,13 @@
+using OrderManagement.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+var connectionString = builder.Configuration.GetConnectionString("Development");
+builder.Services.ConfigureInfrastructure(connectionString);
 
 var app = builder.Build();
 

@@ -12,6 +12,7 @@ services:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
       - ASPNETCORE_Kestrel__Certificates__Default__Password=password
       - ASPNETCORE_Kestrel__Certificates__Default__Path=/root/.aspnet/https/aspnetapp.pfx
+      - ConnectionStrings__Development=${DEV_DB_CONNECTION_STRING}
     ports:
       - "8000:8080"
       - "8001:8081"

@@ -1,6 +1,5 @@
 .DS_Store
 \package.g.props
-.env
 /nginx/ssl/*
 /nginx/logs/*
 /minio_data
