@@ -2,6 +2,10 @@
 
 ## Description
 
+[![ASP.NET Core][ASP.NET Core]][ASP.NET-Core-url]
+[![PostgreSQL][PostgreSQL]][PostgreSQL-url]
+[![Docker][Docker]][Docker-url]
+
 A simple order management API with a persistence layer. [Learn more here](https://github.com/erinev/order-management-api-exercise).
 
 ## Getting started
@@ -20,7 +24,7 @@ A simple order management API with a persistence layer. [Learn more here](https:
 docker compose up -d
 ```
 
-_If you get certificate issues, try getting rid of port mappings and `ASPNETCORE_HTTPS_PORTS=8081` in `docker-compose.yml`_
+_If you get certificate issues, try getting rid of port mapping `8001:8081` and `ASPNETCORE_HTTPS_PORTS=8081` in `docker-compose.yml`_
 
 ## Highlights
 
@@ -43,3 +47,10 @@ _If you get certificate issues, try getting rid of port mappings and `ASPNETCORE
 - Spent around 8 hours in total working on this project
 - Prioritised functionality (KISS)
 - Had lots of fun :p
+
+[ASP.NET Core]: https://img.shields.io/badge/ASP.NET_Core-20232A?style=for-the-badge&logo=.net&logoColor=512BD4
+[ASP.NET-Core-url]: https://dotnet.microsoft.com/en-us/apps/aspnet
+[PostgreSQL]: https://img.shields.io/badge/PostgreSQL-20232A?style=for-the-badge&logo=postgresql&logoColor=3178C6
+[PostgreSQL-url]: https://www.postgresql.org/
+[Docker]: https://img.shields.io/badge/Docker-20232A?style=for-the-badge&logo=docker&logoColor=2496ED
+[Docker-url]: https://www.docker.com/
