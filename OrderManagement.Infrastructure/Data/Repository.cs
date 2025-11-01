@@ -24,12 +24,12 @@ public class Repository(OrderContext dbContext) : IRepository
             ?? throw new DbEntityNotFoundException(typeof(T).Name, id);
     }
 
-    public async Task DeleteAsync<T>(T entity, CancellationToken cancellationToken) where T : BaseEntity
+    public void DeleteAsync<T>(T entity, CancellationToken cancellationToken) where T : BaseEntity
     {
         dbContext.Set<T>().Remove(entity);
     }
 
-    public async Task UpdateAsync<T>(T entity, CancellationToken cancellationToken) where T : BaseEntity
+    public void UpdateAsync<T>(T entity, CancellationToken cancellationToken) where T : BaseEntity
     {
         dbContext.Set<T>().Update(entity);
     }

@@ -10,9 +10,9 @@ public interface IRepository
 
     public Task CreateAsync<T>(T entity, CancellationToken cancellationToken) where T : BaseEntity;
 
-    public Task DeleteAsync<T>(T entity, CancellationToken cancellationToken) where T : BaseEntity;
+    public void DeleteAsync<T>(T entity, CancellationToken cancellationToken) where T : BaseEntity;
 
-    public Task UpdateAsync<T>(T entity, CancellationToken cancellationToken) where T : BaseEntity;
+    public void UpdateAsync<T>(T entity, CancellationToken cancellationToken) where T : BaseEntity;
 
     public IQueryable<T> AsQueryable<T>() where T : BaseEntity;
 
