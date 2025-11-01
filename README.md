@@ -24,8 +24,6 @@ A simple order management API with a persistence layer. [Learn more here](https:
 docker compose up -d
 ```
 
-_If you get certificate issues, try getting rid of port mapping `8001:8081` and `ASPNETCORE_HTTPS_PORTS=8081` in `docker-compose.yml`_
-
 3. Go to `localhost:8000/swagger/index.html` to access Swagger UI
 
 4. _(Optionally)_ You can go to `http://localhost:8080/browser/` to access pgAdmin4 and log in with Username - `admin@example.com` and Password - `admin`
