@@ -1,4 +1,5 @@
 using AutoMapper;
+using OrderManagement.Application.Features.ProductFeatures.CreateProduct;
 using OrderManagement.Application.Features.ProductFeatures.GetAllProducts;
 using OrderManagement.Domain.Entities;
 
@@ -9,5 +10,7 @@ public class ProductMappings : Profile
     public ProductMappings()
     {
         CreateMap<Product, GetAllProductsResponse>();
+
+        CreateMap<CreateProductCommand, Product>();
     }
 }
